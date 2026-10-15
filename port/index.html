@@ -40,7 +40,7 @@ svg{display:block;flex:none}
 .stat:first-child{border-left:0}
 .stat b{color:#fff;font-size:17px;font-weight:700;line-height:1.15}
 .stat small{color:var(--mut);font-size:11.5px;line-height:1.2}
-.tabs{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:18px;background:rgba(10,14,24,.75);height:54px}
+.tabs{margin-top:16px;display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:18px;background:rgba(10,14,24,.75);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);height:54px}
 .tabs button{display:grid;place-items:center;color:#fff;position:relative;opacity:.9}
 .tabs button+button{border-left:1px solid var(--line)}
 .tabs button.on::after{content:"";position:absolute;bottom:-1px;left:18%;right:18%;height:3px;border-radius:3px;background:var(--red)}
@@ -78,19 +78,23 @@ svg{display:block;flex:none}
 .sec-h p{color:#b6bdcc;font-size:13.5px;line-height:1.45;margin-top:5px;max-width:200px}
 .script{font-family:'Kaushan Script',cursive;color:var(--red2);position:absolute;right:0;top:4px;font-size:21px;line-height:1.05;transform:rotate(-8deg);text-align:left;width:120px}
 .script::after{content:"";display:block;height:3px;border-radius:3px;background:var(--red2);width:110px;margin-top:6px;transform:rotate(-4deg);opacity:.9}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;align-items:stretch;padding-top:10px}
-.plan{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:rgba(12,16,28,.9);padding:14px 10px 12px;min-width:0}
-.plan.pop{border-color:var(--red2);box-shadow:0 0 0 1px rgba(255,45,98,.35),0 0 28px rgba(227,23,76,.35);margin-top:-10px;background:linear-gradient(180deg,rgba(60,10,28,.55),rgba(12,16,28,.95))}
-.badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--red);font-style:normal;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
-.plan h3{font-size:16.5px;font-weight:700}
-.pd{color:#aab2c3;font-size:10.5px;line-height:1.4;margin-top:6px;min-height:30px}
-.price{margin:12px 0 10px;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
-.price b{color:var(--red2);font-size:26px;font-weight:700;letter-spacing:-.5px}
-.price small{color:#aab2c3;font-size:11px}
-.plan ul{flex:1;display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
-.plan li{display:flex;gap:7px;align-items:flex-start;font-size:11.5px;line-height:1.3;color:#e7eaf2;position:relative}
+.plans{display:flex;gap:14px;margin:14px -16px 0;padding:22px 16px 26px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding:0 16px;align-items:stretch}
+.plans::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:-6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:.2s}
+.dots i.on{background:var(--red2);width:22px;border-radius:99px}
+.plan{position:relative;display:flex;flex-direction:column;flex:0 0 82%;scroll-snap-align:center;border:1px solid var(--line);border-radius:20px;background:rgba(12,16,28,.9);padding:26px 22px 22px;min-width:0}
+.plan.pop{border-color:var(--red2);box-shadow:0 0 0 1px rgba(255,45,98,.35),0 0 28px rgba(227,23,76,.35);background:linear-gradient(180deg,rgba(60,10,28,.55),rgba(12,16,28,.95))}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--red);font-style:normal;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.plan h3{font-size:22px;font-weight:700}
+.pd{color:#aab2c3;font-size:14px;line-height:1.5;margin-top:8px}
+.price{margin:18px 0 18px;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.price b{color:var(--red2);font-size:42px;font-weight:700;letter-spacing:-.5px}
+.price small{color:#aab2c3;font-size:14px}
+.plan ul{flex:1;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.plan li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;color:#e7eaf2;position:relative}
 .plan li svg{margin-top:0px}
-.gs{width:100%;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px}
+.gs{width:100%;height:50px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px}
 .gs.solid{background:var(--red);border-color:var(--red);box-shadow:0 6px 18px rgba(227,23,76,.45)}
 .note{margin-top:18px;display:flex;gap:8px;color:#aab2c3;font-size:12px;line-height:1.5}
 .ptools{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
@@ -112,20 +116,20 @@ svg{display:block;flex:none}
 .pgrid div span{word-break:break-all}
 .pgrid svg{color:var(--red2)}
 .box{margin-top:14px;border:1px solid var(--line);border-radius:18px;background:rgba(10,14,24,.8);padding:16px 16px}
-.bh{display:flex;gap:12px;align-items:center;color:var(--red2);margin-bottom:10px}
+.bh{display:flex;gap:12px;align-items:center;color:var(--red2);margin-bottom:16px}
 .bh h4{color:#fff;font-size:21px;font-weight:700}
-.box .abt{color:#c8cedb;font-size:14.5px;line-height:1.55;padding-left:44px;margin-top:-30px}
+.box .abt{color:#c8cedb;font-size:14.5px;line-height:1.7;padding-left:2px;margin-top:0}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 8px;font-size:14px;font-weight:500;background:rgba(255,255,255,.02)}
 .sb{width:30px;height:30px;border-radius:8px;border:1.5px solid;display:grid;place-items:center;font-size:13px;font-weight:700;background:rgba(0,0,0,.35)}
-.tl{padding-left:44px;position:relative;margin-top:-26px}
-.tl::before{content:"";position:absolute;left:5px;top:34px;bottom:12px;width:2px;background:var(--red)}
-.ex{position:relative;margin-bottom:18px;padding-top:2px}
+.tl{padding-left:28px;position:relative;margin-top:0;padding-top:4px}
+.tl::before{content:"";position:absolute;left:5px;top:18px;bottom:12px;width:2px;background:var(--red)}
+.ex{position:relative;margin-bottom:24px;padding-top:0}
 .ex:last-child{margin-bottom:0}
-.ex::before{content:"";position:absolute;left:-44px;margin-left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(227,23,76,.25)}
+.ex::before{content:"";position:absolute;left:-28px;margin-left:0;top:3px;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(227,23,76,.25)}
 .ex small{display:block;color:#c3c9d6;font-size:13.5px}
-.ex b{display:block;font-size:16.5px;font-weight:600;margin:4px 0}
-.ex span.d{color:#8d8bff;font-size:13.5px;opacity:.9}
+.ex b{display:block;font-size:16.5px;font-weight:600;margin:6px 0 4px;line-height:1.35}
+.ex span.d{color:#8d8bff;font-size:13.5px;opacity:.9;line-height:1.5;display:block}
 .hl{display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px}
 .cv-sp{height:20px}
 
@@ -178,14 +182,59 @@ svg{display:block;flex:none}
 .mbox{width:min(400px,100%);max-height:90dvh;overflow:auto;background:#10131f;border:1px solid var(--red);border-radius:20px;padding:20px}
 .mbox h3{font-size:19px;margin-bottom:14px}
 .mbox label{display:block;font-size:12px;color:var(--mut);margin:12px 0 5px}
-.mbox input{width:100%;background:#080a12;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:#fff;font:inherit;font-size:14px}
-.mbox input:focus{outline:1px solid var(--red2)}
+.mbox input,.mbox select{width:100%;background:#080a12;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:#fff;font:inherit;font-size:14px}
+.mbox input:focus,.mbox select:focus{outline:1px solid var(--red2)}
 .mbox .hint{font-size:11.5px;color:var(--mut);margin-top:8px;line-height:1.5}
 .mrow{display:flex;gap:10px;margin-top:18px}
 .mrow button{flex:1;padding:12px;border-radius:12px;font-weight:600;background:rgba(255,255,255,.1)}
 .mrow button.pri{background:var(--red)}
 #toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:#1b1f2e;border:1px solid var(--red);padding:10px 16px;border-radius:12px;font-size:13px;z-index:200;display:none;max-width:calc(100vw - 32px);text-align:center}
 @media(min-width:431px){body{background:radial-gradient(circle at 50% 0,#12162a,#04060b 70%)}.app{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+
+/* ---------- APPLY / TERMS POPUPS ---------- */
+.apov{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(0,0,0,.72);backdrop-filter:blur(6px)}
+.apov.open{display:flex;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.appanel{position:relative;width:min(400px,100%);max-height:94dvh;overflow:auto;border:1.5px solid rgba(227,23,76,.6);border-radius:28px;background:linear-gradient(180deg,#160b15,#0a0c15);padding:26px 20px 20px;box-shadow:0 0 50px rgba(227,23,76,.25);animation:up .28s ease;scrollbar-width:none}
+.appanel::-webkit-scrollbar{display:none}
+.apx{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--line);display:grid;place-items:center;font-size:15px;z-index:2}
+.appanel h2{font-size:27px;font-weight:800;letter-spacing:-.4px;padding-right:44px;line-height:1.15}
+.appanel .sub{color:var(--mut);font-size:14px;line-height:1.5;margin-top:8px}
+.applan{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 6px;padding:14px 16px;border-radius:18px;border:1px solid rgba(227,23,76,.5);background:linear-gradient(135deg,rgba(227,23,76,.22),rgba(227,23,76,.07))}
+.applan b{display:block;font-size:18px;font-weight:700}
+.applan small{display:block;color:var(--mut);font-size:13px;margin-top:3px}
+.apprice{color:var(--red2);font-weight:800;font-size:20px;white-space:nowrap;text-align:right}
+.apprice small{color:var(--mut);font-weight:500;font-size:12px;margin:0}
+.fld{display:block;margin-top:14px;min-width:0}
+.fld>span{display:block;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:7px}
+.fld input{width:100%;height:50px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);padding:0 14px;font:inherit;font-size:15px;outline:0;transition:.15s}
+.fld input::placeholder{color:rgba(154,163,181,.55)}
+.fld input:focus{border-color:var(--red2);box-shadow:0 0 0 3px rgba(255,45,98,.22)}
+.fld input.bad{border-color:#ff5252;box-shadow:0 0 0 3px rgba(255,82,82,.2)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
+.aperr{margin-top:14px;padding:10px 14px;border-radius:12px;background:rgba(255,82,82,.12);border:1px solid rgba(255,82,82,.45);color:#ff9a9a;font-size:13px;line-height:1.5}
+.aperr a{color:inherit;text-decoration:underline}
+.apsubmit{width:100%;height:54px;margin-top:20px;border-radius:999px;background:linear-gradient(180deg,#f0215a,#d81446);border:1px solid rgba(255,255,255,.12);font-size:16px;font-weight:700;color:#fff;box-shadow:0 10px 28px rgba(227,23,76,.45)}
+.apsubmit:active{transform:scale(.98)}
+.apagree{margin-top:12px;text-align:center;font-size:12px;color:var(--mut);line-height:1.5}
+.aplink{color:var(--red2);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.apstate{text-align:center;padding:14px 0 4px}
+.apstate h2{padding:0;margin-top:6px}
+.apbar{height:7px;border-radius:7px;background:rgba(255,255,255,.1);overflow:hidden;margin:26px 0 14px}
+.apbar i{display:block;height:100%;width:6%;border-radius:7px;background:linear-gradient(90deg,var(--red),#ff6b8e);transition:width .25s}
+.apcheck{width:76px;height:76px;margin:6px auto 14px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 30px rgba(227,23,76,.55);animation:pop .4s ease}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
+.apid{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 14px;border-radius:12px;border:1px dashed rgba(255,45,98,.6);font-size:13px;color:var(--mut)}
+.apid b{color:var(--txt);letter-spacing:.5px}
+.apid button{color:var(--red2);font-size:16px}
+.apnote{margin-top:16px;color:var(--mut);font-size:13.5px;line-height:1.6}
+.apacts{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.apbtn2{display:flex;align-items:center;justify-content:center;height:50px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:15px;color:var(--txt);text-decoration:none}
+.tcitem{display:flex;gap:12px;margin-top:12px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:14.5px;line-height:1.55}
+.tcn{color:var(--red2);font-weight:700;white-space:nowrap}
+.tclink{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;color:var(--mut);font-size:13px}
+
 </style>
 </head>
 <body>
@@ -194,6 +243,8 @@ svg{display:block;flex:none}
 <div id="admin"></div>
 <div class="ov" id="contactOv"></div>
 <div id="reels"></div>
+<div class="apov" id="apov"></div>
+<div class="apov" id="tcov" style="z-index:140"></div>
 <div class="mod" id="modal"></div>
 <div id="toast"></div>
 <input type="file" id="avatarIn" accept="image/*" hidden>
@@ -216,8 +267,8 @@ const DEFAULT = {
     {icon:'ae',value:'After Effects',label:'Software'}
   ],
   videos:[
-    {src:'',views:'54.2k',hue:205},{src:'',views:'124k',hue:130},{src:'',views:'89.1k',hue:215},
-    {src:'',views:'76k',hue:150},{src:'',views:'204k',hue:105},{src:'',views:'102k',hue:190}
+    {src:'',views:'54.2k',hue:205,kind:'motion'},{src:'',views:'124k',hue:130,kind:'motion'},{src:'',views:'89.1k',hue:215,kind:'motion'},
+    {src:'',views:'76k',hue:150,kind:'reel'},{src:'',views:'204k',hue:105,kind:'reel'},{src:'',views:'102k',hue:190,kind:'reel'}
   ],
   pricing:{
     title:'Pricing',sub1:'Quality edits. Fair price.',sub2:'Choose the service that fits your vision.',
@@ -293,7 +344,7 @@ function ic(n,s=22,extra=''){
 /* ---------- state ---------- */
 let D = JSON.parse(JSON.stringify(DEFAULT));
 let ADMIN = false, EDIT = false;
-let view = 'home', homeTab = 'reels', pTab = 'mg', muted = true;
+let view = 'home', homeTab = 'motion', pTab = 'mg', muted = true;
 const blobUrls = {};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -326,18 +377,18 @@ function vHome(){
   const p = D.profile;
   const av = p.avatar ? `<img src="${p.avatar}" alt="">` : `<div class="ph">${esc((p.name||'?').split(' ').map(w=>w[0]).slice(0,2).join(''))}</div>`;
   let list = D.videos.map((v,i)=>({v,i}));
-  if(homeTab==='saved') list = list.filter(x=>x.v.saved);
+  const curKind = homeTab==='reels' ? 'reel' : 'motion';
+  list = list.filter(x=>(x.v.kind||'motion')===curKind);
   const tiles = list.map(({v,i})=>`
     <div class="tile" data-act="play" data-a="${i}">
       ${thumb(v)}
       ${EDIT?`<div class="tbtns">
-        <button data-act="savevid" data-a="${i}" title="Save" style="${v.saved?'color:#ff2d62':''}">${ic('bookmark',14)}</button>
         <button data-act="editvid" data-a="${i}" title="Edit">${ic('edit',14)}</button>
         <button data-act="delvid" data-a="${i}" title="Delete">${ic('x',14)}</button></div>`:''}
       <div class="meta"><span class="pbadge">${ic('play',12)}</span><span>${esc(v.views)}</span></div>
     </div>`).join('');
-  const add = EDIT && homeTab!=='saved' ? `<button class="addtile" data-act="addvid">${ic('plus',26)}<span>Add video</span></button>` : '';
-  const emptyMsg = !list.length && !EDIT ? `<div class="empty">${homeTab==='saved'?'No saved videos yet.':'No videos yet.'}</div>` : '';
+  const add = EDIT ? `<button class="addtile" data-act="addvid">${ic('plus',26)}<span>Add video</span></button>` : '';
+  const emptyMsg = !list.length && !EDIT ? `<div class="empty">No videos yet.</div>` : '';
   return `<div class="view">
     <div class="swoosh"><i></i></div>
     <div class="hero">
@@ -353,9 +404,8 @@ function vHome(){
     </div>
     <div class="stats">${D.stats.map((s,i)=>`<div class="stat">${ic(s.icon,30)}<b>${E('stats.'+i+'.value')}</b><small>${E('stats.'+i+'.label')}</small></div>`).join('')}</div>
     <div class="tabs">
-      <button class="${homeTab==='grid'?'on':''}" data-act="htab" data-a="grid">${ic('grid',26)}</button>
+      <button class="${homeTab==='motion'?'on':''}" data-act="htab" data-a="motion">${ic('grid',26)}</button>
       <button class="${homeTab==='reels'?'on':''}" data-act="htab" data-a="reels">${ic('clapper',28)}</button>
-      <button class="${homeTab==='saved'?'on':''}" data-act="htab" data-a="saved">${ic('bookmark',26)}</button>
     </div>
     <div class="grid">${tiles}${add}${emptyMsg}</div>
   </div>`;
@@ -386,7 +436,7 @@ function vPricing(){
       <p class="pd">${E(base+'.desc')}</p>
       <div class="price"><b>$${E(base+'.price')}</b><small>${E(base+'.unit')}</small></div>
       <ul>${p.features.map((f,k)=>`<li>${ic('check',14)}<span style="flex:1">${E(base+'.features.'+k)}</span>${EDIT?`<button class="xdel" data-act="delfeat" data-a="${i}" data-b="${k}">✕</button>`:''}</li>`).join('')}</ul>
-      <button class="gs ${p.popular?'solid':''}" data-act="contact">Get Started →</button>
+      <button class="gs ${p.popular?'solid':''}" data-act="apply" data-a="${i}">Get Started →</button>
       ${EDIT?`<div class="ptools"><button class="mini" data-act="addfeat" data-a="${i}">+ feature</button><button class="mini" data-act="pop" data-a="${i}">${p.popular?'★ popular':'☆ popular'}</button></div>`:''}
     </div>`;}).join('');
   return `<div class="view">
@@ -405,9 +455,11 @@ function vPricing(){
         <div><h2>${E('pricing.'+c+'.title')}</h2><p>${E('pricing.'+c+'.desc','span','',true)}</p></div>
         <div class="script">${E('pricing.'+c+'.script')}</div>
       </div>
-      <div class="plans">${plans}</div>
+      <div class="plans" id="plans">${plans}</div>
+      <div class="dots" id="dots">${S.plans.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>
     </div>
     <div class="note">${ic('info',18)}<span>${E('pricing.note','span','',true)}</span></div>
+    <button class="tclink" data-act="terms" style="width:100%"><span class="aplink">Terms &amp; Conditions</span></button>
   </div>`;
 }
 
@@ -456,10 +508,26 @@ function renderAdmin(){
 }
 async function render(keepScroll=true){
   const y = keepScroll ? window.scrollY : 0;
+  const oldPl = document.getElementById('plans');
+  const keepX = (oldPl && keepScroll) ? oldPl.scrollLeft : null;
   await resolveVideos();
   $('#root').innerHTML = ({home:vHome,pricing:vPricing,cv:vCV})[view]();
   renderNav(); renderAdmin();
   window.scrollTo(0,y);
+  const pl = document.getElementById('plans');
+  if(pl){
+    const cards = [...pl.children];
+    const setDots = ()=>{
+      const c = pl.scrollLeft + pl.clientWidth/2;
+      let best=0, bd=1e9;
+      cards.forEach((el,i)=>{const d=Math.abs(el.offsetLeft+el.offsetWidth/2-c); if(d<bd){bd=d;best=i;}});
+      document.querySelectorAll('#dots i').forEach((d,i)=>d.classList.toggle('on',i===best));
+    };
+    if(keepX!==null){ pl.scrollLeft = keepX; }
+    else { const pop = cards.find(el=>el.classList.contains('pop')); if(pop) pl.scrollLeft = pop.offsetLeft - (pl.clientWidth-pop.offsetWidth)/2; }
+    setDots();
+    pl.addEventListener('scroll',setDots,{passive:true});
+  }
 }
 
 /* ---------- contact sheet ---------- */
@@ -487,16 +555,18 @@ const closeContact=()=>$('#contactOv').classList.remove('open');
 let curVid=null, rObs=null;
 function openReels(i){
   const el=$('#reels');
-  el.innerHTML = `<div class="rwrap"><div class="rs">${D.videos.map((v,k)=>{
+  const kd=(D.videos[i].kind||'motion');
+  const pos=D.videos.map((v,k)=>k).filter(k=>(D.videos[k].kind||'motion')===kd);
+  el.innerHTML = `<div class="rwrap"><div class="rs">${pos.map(k=>[D.videos[k],k]).map(([v,k])=>{
     const s=vsrc(v);
     return `<div class="reel" data-k="${k}">${s?`<video loop playsinline ${muted?'muted':''} preload="auto" src="${esc(s)}"></video>`:`<div class="ph" style="background:${grad(v.hue||200)}">${EDIT||ADMIN?'Video မထည့်ရသေးပါ — Edit mode မှာ ထည့်ပါ':''}</div>`}</div>`;}).join('')}</div>
-    <div class="rtitle">Reels</div>
+    <div class="rtitle">${kd==='reel'?'Reels':'Motion'}</div>
     <button class="rback" data-act="closereels">${ic('chev',26)}</button>
     <button class="rmute" data-act="mute">${ic(muted?'mute':'sound',22)}</button>
     <div class="rbar"><i id="rfill"></i></div>
     <div class="rplay" id="rplay">${ic('play',30)}</div></div>`;
   el.classList.add('open'); document.body.style.overflow='hidden';
-  const sc=el.querySelector('.rs'); sc.scrollTop = i*sc.clientHeight;
+  const sc=el.querySelector('.rs'); sc.scrollTop = pos.indexOf(i)*sc.clientHeight;
   rObs && rObs.disconnect();
   rObs = new IntersectionObserver(es=>{
     es.forEach(en=>{
@@ -526,19 +596,21 @@ function videoModal(idx){
   openModal(`<h3>${idx==null?'Add video':'Edit video'}</h3>
     <label>Video file (ဖုန်း/ကွန်ပျူတာထဲက)</label><input type="file" id="mvFile" accept="video/*">
     <label>သို့မဟုတ် Video URL (.mp4 link)</label><input id="mvUrl" placeholder="https://.../video.mp4" value="${isIdb?'':esc(v.src)}">
+    <label>Category</label><select id="mvKind"><option value="motion" ${(v.kind||(typeof homeTab!=='undefined'&&homeTab==='reels'?'reel':'motion'))==='motion'?'selected':''}>Motion video</option><option value="reel" ${(v.kind||(homeTab==='reels'?'reel':'motion'))==='reel'?'selected':''}>Reel</option></select>
     <label>Views (ပြချင်တဲ့ စာသား)</label><input id="mvViews" value="${esc(v.views)}" placeholder="54.2k">
     <p class="hint">⚠️ File အနေနဲ့ upload လုပ်ထားတာက <b>သင့် browser ထဲမှာပဲ</b> သိမ်းတာပါ။ Host လုပ်ပြီးနောက် လူတွေမြင်စေချင်ရင် video ကို hosting/Drive/CDN မှာတင်ပြီး <b>URL</b> နဲ့ ထည့်ပါ။</p>
     <div class="mrow"><button data-act="closemodal">Cancel</button><button class="pri" data-act="savevideo" data-a="${idx==null?'':idx}">Save</button></div>`);
 }
 async function saveVideo(idx){
   const f=$('#mvFile').files[0], url=$('#mvUrl').value.trim(), views=$('#mvViews').value.trim()||'0';
+  const kind=$('#mvKind').value;
   let src = idx===''? '' : D.videos[+idx].src;
   try{
     if(f){ toast('Saving video…'); src = await idbPut(f); }
     else if(url) src = url;
   }catch(e){ toast('Video သိမ်းလို့မရပါ — URL နဲ့ ထည့်ကြည့်ပါ'); return; }
-  if(idx===''){ D.videos.unshift({src,views,hue:Math.floor(Math.random()*360)}); }
-  else { Object.assign(D.videos[+idx],{src,views}); }
+  if(idx===''){ D.videos.unshift({src,views,kind,hue:Math.floor(Math.random()*360)}); }
+  else { Object.assign(D.videos[+idx],{src,views,kind}); }
   save(); closeModal(); render();
 }
 function contactModal(){
@@ -580,17 +652,158 @@ function exportData(){
   toast(n? `data.json ပြီးပါပြီ — upload လုပ်ထားတဲ့ video ${n} ခုကို URL နဲ့ပြန်ထည့်ရန်လိုပါတယ်` : 'data.json ပြီးပါပြီ — index.html ဘေးမှာ တင်ပါ');
 }
 
+
+/* ---------- TELEGRAM + TERMS + APPLY ---------- */
+const TELEGRAM_BOT_TOKEN = '8905424717:AAHRUR7624xZ4TYXoVFsah-OUZ7w47ShoSM';
+const TELEGRAM_CHAT_ID = '1956659957';
+const FIRST_PAYMENT_PERCENT = 50;
+const TERMS = [
+  '50% of first payment is required before project is started.',
+  'The final payment within 24 hours upon delivery of the final video.',
+  'If client need more revisions ( 5% of video fully charges for 1 time ) .'
+];
+let apCtx = null, apBusy = false, apTimer = null;
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+const planPrice = p => { const n = parseFloat(String(p.price).replace(/[^\d.]/g,'')); return isNaN(n) ? null : n; };
+
+function openTerms(){
+  $('#tcov').innerHTML = `<div class="appanel" role="dialog" aria-modal="true">
+    <button class="apx" data-act="closeterms" aria-label="Close">✕</button>
+    <h2>Terms &amp; Conditions</h2>
+    <p class="sub">Please read these before starting a project.</p>
+    ${TERMS.map((t,i)=>`<div class="tcitem"><span class="tcn">( ${i+1} )</span><span>${esc(t)}</span></div>`).join('')}
+  </div>`;
+  $('#tcov').classList.add('open');
+}
+function closeTerms(){ $('#tcov').classList.remove('open'); }
+
+function apFormHTML(c){
+  const S = D.pricing[c.catKey], p = S.plans[c.idx], n = planPrice(p);
+  return `<div class="appanel" role="dialog" aria-modal="true" aria-labelledby="apTitle">
+    <button class="apx" id="apClose" data-act="closeapply" aria-label="Close">✕</button>
+    <form id="apForm" novalidate>
+      <h2 id="apTitle">Your details</h2>
+      <p class="sub">Fill this in and we’ll contact you to confirm your project.</p>
+      <div class="applan"><div><b>${esc(p.name)}</b><small>${esc(S.title)}</small></div>
+        <div class="apprice">${n!=null?'$':''}${esc(p.price)}<small> ${esc(p.unit||'')}</small></div></div>
+      <label class="fld"><span>Name</span><input id="apName" type="text" autocomplete="name" placeholder="Your name"></label>
+      <label class="fld"><span>Phone number</span><input id="apPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="09 xxx xxx xxx"></label>
+      <div class="frow">
+        <label class="fld"><span>Viber account</span><input id="apViber" type="text" placeholder="Viber number or name"></label>
+        <label class="fld"><span>Telegram account</span><input id="apTg" type="text" placeholder="@username"></label>
+      </div>
+      <label class="fld"><span>Gmail</span><input id="apMail" type="email" autocomplete="email" placeholder="yourname@gmail.com"></label>
+      <input class="hp" id="apWeb" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="aperr" id="apErr" role="alert" hidden></div>
+      <button type="submit" class="apsubmit">Apply</button>
+      <p class="apagree">By applying you agree to our <button type="button" class="aplink" data-act="terms">Terms &amp; Conditions</button></p>
+    </form>
+  </div>`;
+}
+function openApply(i){
+  apCtx = { catKey:pTab, idx:i };
+  $('#apov').innerHTML = apFormHTML(apCtx);
+  $('#apov').classList.add('open');
+  $('#apForm').addEventListener('submit', submitApply);
+  setTimeout(()=>{ const n=$('#apName'); n && n.focus(); }, 300);
+}
+function closeApply(){ if(apBusy) return; $('#apov').classList.remove('open'); $('#apov').innerHTML=''; }
+function apErr(html){ const e=$('#apErr'); e.innerHTML=html; e.hidden=false; }
+
+function validateApply(){
+  const v = { name:$('#apName').value.trim(), phone:$('#apPhone').value.trim(), viber:$('#apViber').value.trim(), telegram:$('#apTg').value.trim(), email:$('#apMail').value.trim() };
+  const bad=[];
+  if(v.name.length<2) bad.push('apName');
+  if(!/^\+?[\d\s\-()]{6,}$/.test(v.phone)) bad.push('apPhone');
+  if(v.viber.length<3) bad.push('apViber');
+  if(v.telegram.length<2) bad.push('apTg');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) bad.push('apMail');
+  ['apName','apPhone','apViber','apTg','apMail'].forEach(id=>$('#'+id).classList.toggle('bad',bad.includes(id)));
+  if(bad.length){ $('#'+bad[0]).focus(); apErr('Please fill in every field — name, phone, Viber, Telegram and a valid Gmail are all required.'); return null; }
+  $('#apErr').hidden=true; return v;
+}
+function makeOrderId(){
+  const d=new Date(), pad=n=>String(n).padStart(2,'0'), ch='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  const r=crypto.getRandomValues(new Uint8Array(4));
+  return `BS-${String(d.getFullYear()).slice(2)}${pad(d.getMonth()+1)}${pad(d.getDate())}-`+Array.from(r,b=>ch[b%ch.length]).join('');
+}
+async function sendTelegram(o){
+  const h = v => String(v ?? '').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const price = o.amount==null ? h(o.priceText) : `$${o.amount}  —  first payment: $${o.firstPayment}`;
+  const text = [
+    `🆕 <b>New application</b>  <code>${h(o.id)}</code>`, ``,
+    `📦 <b>Service:</b> ${h(o.category)}`,
+    `🎁 <b>Pack:</b> ${h(o.plan)}`,
+    `💰 <b>Price:</b> ${price}`,
+    `📝 <b>Includes:</b> ${h(o.detail)}`, ``,
+    `👤 <b>Name:</b> ${h(o.name)}`,
+    `📞 <b>Phone:</b> ${h(o.phone)}`,
+    `💬 <b>Viber:</b> ${h(o.viber)}`,
+    `✈️ <b>Telegram:</b> ${h(o.telegram)}`,
+    `✉️ <b>Gmail:</b> ${h(o.email)}`
+  ].join('\n');
+  const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method:'POST',
+    body:new URLSearchParams({chat_id:TELEGRAM_CHAT_ID,text,parse_mode:'HTML',disable_web_page_preview:'true'})
+  });
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok || !j.ok) throw new Error('Telegram: '+(j.description||r.status));
+}
+async function submitApply(e){
+  e.preventDefault();
+  if(apBusy || !apCtx) return;
+  const v = validateApply(); if(!v) return;
+  const S = D.pricing[apCtx.catKey], p = S.plans[apCtx.idx], n = planPrice(p);
+  const order = { id:makeOrderId(), category:S.title, plan:p.name, amount:n, firstPayment:n!=null?Math.round(n*FIRST_PAYMENT_PERCENT/100):null,
+    priceText:`${p.price}${p.unit||''}`, detail:p.features.slice(0,3).join(', '), ...v };
+  if($('#apWeb').value){ apDone(order); return; }   // honeypot
+  apBusy = true;
+  const box = $('#apov .appanel');
+  box.innerHTML = `<div class="apstate"><h2>Sending your application</h2><div class="apbar"><i id="apFill"></i></div><p class="sub">Please keep this window open.</p></div>`;
+  let w=6; clearInterval(apTimer);
+  apTimer = setInterval(()=>{ w += (90-w)*.08; const f=$('#apFill'); if(f) f.style.width=w.toFixed(1)+'%'; }, 180);
+  try{
+    await Promise.all([sendTelegram(order), sleep(1200)]);
+    clearInterval(apTimer); const f=$('#apFill'); if(f) f.style.width='100%'; await sleep(500);
+    apBusy=false; apDone(order);
+  }catch(err){
+    console.error(err); clearInterval(apTimer); apBusy=false;
+    $('#apov').innerHTML = apFormHTML(apCtx);
+    $('#apForm').addEventListener('submit', submitApply);
+    ['apName','apPhone','apViber','apTg','apMail'].forEach(id=>{ $('#'+id).value = {apName:v.name,apPhone:v.phone,apViber:v.viber,apTg:v.telegram,apMail:v.email}[id]; });
+    apErr(`We couldn’t send your application. Please try again, or message me directly on <a href="${contactLinks().tg}" target="_blank" rel="noopener">Telegram</a>.`);
+  }
+}
+function apDone(order){
+  $('#apov').innerHTML = `<div class="appanel" role="dialog" aria-modal="true">
+    <button class="apx" data-act="closeapply" aria-label="Close">✕</button>
+    <div class="apstate">
+      <div class="apcheck"><svg width="38" height="38" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 25l8 8 15-17"/></svg></div>
+      <h2>Apply လုပ်ပြီးပါပြီ။</h2>
+      <p class="sub">Your application has been submitted successfully.</p>
+      <div class="apid">Application ID: <b id="apIdTxt">${esc(order.id)}</b><button type="button" data-act="copyid" aria-label="Copy ID">⧉</button></div>
+      <p class="apnote">I’ll review your application and contact you soon through the contact details you provided.</p>
+      <div class="apacts"><button class="apsubmit" style="margin:0" data-act="closeapply">Done</button>
+        <a class="apbtn2" href="${contactLinks().tg}" target="_blank" rel="noopener">Message me on Telegram</a></div>
+    </div></div>`;
+}
+
 /* ---------- event delegation ---------- */
 document.addEventListener('click',async e=>{
   const t=e.target.closest('[data-act]');
-  if(!t) { if(e.target.id==='contactOv') closeContact(); if(e.target.closest('.reel')&&curVid){ if(curVid.paused){curVid.play();$('#rplay').classList.add('hide');}else{curVid.pause();$('#rplay').classList.remove('hide');} } return; }
+  if(!t) { if(e.target.id==='contactOv') closeContact(); if(e.target.id==='apov') closeApply(); if(e.target.id==='tcov') closeTerms(); if(e.target.closest('.reel')&&curVid){ if(curVid.paused){curVid.play();$('#rplay').classList.add('hide');}else{curVid.pause();$('#rplay').classList.remove('hide');} } return; }
   const a=t.dataset.a, b=t.dataset.b, act=t.dataset.act;
   if(['play'].includes(act) && EDIT && e.target.closest('.tbtns')) return;
   switch(act){
     case 'nav': view=a; if(EDIT||true) await render(false); window.scrollTo(0,0); break;
     case 'htab': homeTab=a; render(); break;
-    case 'ptab': pTab=a; render(); break;
+    case 'ptab': { const ch = pTab!==a; pTab=a; if(ch){ const y=window.scrollY; await render(false); window.scrollTo(0,y);} break; }
     case 'contact': openContact(); break;
+    case 'apply': openApply(+a); break;
+    case 'closeapply': closeApply(); break;
+    case 'terms': openTerms(); break;
+    case 'closeterms': closeTerms(); break;
+    case 'copyid': { const id=$('#apIdTxt').textContent; try{ await navigator.clipboard.writeText(id); toast('Copied ✓'); }catch(_){ toast(id); } break; }
     case 'closecontact': closeContact(); break;
     case 'play': openReels(+a); break;
     case 'closereels': closeReels(); break;
@@ -611,7 +824,6 @@ document.addEventListener('click',async e=>{
     case 'editvid': e.stopPropagation(); videoModal(+a); break;
     case 'savevideo': saveVideo(a); break;
     case 'delvid': e.stopPropagation(); if(confirm('ဒီ video ကို ဖျက်မလား?')){D.videos.splice(+a,1);save();render();} break;
-    case 'savevid': e.stopPropagation(); D.videos[+a].saved=!D.videos[+a].saved; save(); render(); break;
     case 'addfeat': D.pricing[pTab].plans[+a].features.push('New feature'); save(); render(); break;
     case 'delfeat': D.pricing[pTab].plans[+a].features.splice(+b,1); save(); render(); break;
     case 'pop': { const pl=D.pricing[pTab].plans; const was=pl[+a].popular; pl.forEach(p=>p.popular=false); pl[+a].popular=!was; save(); render(); break; }
@@ -627,7 +839,7 @@ document.addEventListener('input',e=>{
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter' && e.target.isContentEditable && !e.target.dataset.multi){ e.preventDefault(); e.target.blur(); }
-  if(e.key==='Escape'){ closeContact(); closeModal(); if($('#reels').classList.contains('open')) closeReels(); }
+  if(e.key==='Escape'){ closeTerms(); closeApply(); closeContact(); closeModal(); if($('#reels').classList.contains('open')) closeReels(); }
 });
 
 /* ---------- boot ---------- */
