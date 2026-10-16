@@ -261,7 +261,7 @@ const DEFAULT = {
   profile:{name:'Brooklyn Simmons',handle:'@Brookidix',role:'Video Editor & Motion Designer',tagline:'Turning ideas into amazing videos',avatar:''},
   contact:{telegram:'Brookidix',viber:'+959000000000',phone:'+959000000000',email:'brookidix@gmail.com'},
   stats:[
-    {icon:'clapper',value:'120+',label:'Projects Completed'},
+    {icon:'done',value:'120+',label:'Projects Completed'},
     {icon:'clock',value:'3+ Yrs',label:'Experience'},
     {icon:'star',value:'Motion',label:'Specialty'},
     {icon:'ae',value:'After Effects',label:'Software'}
@@ -303,6 +303,9 @@ const DEFAULT = {
 
 /* ---------- icons ---------- */
 const P = {
+  mvideo:'<path d="M22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15Z"/><path d="M2.51999 7.11011H21.48"/><path d="M8.51999 2.11011V6.97011"/><path d="M15.48 2.11011V6.52011"/><path d="M9.75 14.4501V13.2501C9.75 11.7101 10.84 11.0801 12.17 11.8501L13.21 12.4501L14.25 13.0501C15.58 13.8201 15.58 15.0801 14.25 15.8501L13.21 16.4501L12.17 17.0501C10.84 17.8201 9.75 17.1901 9.75 15.6501V14.4501V14.4501Z"/>',
+  done:'<path d="M22 9V15C22 15.22 22 15.44 21.98 15.65C21.16 14.64 19.91 14 18.5 14C17.44 14 16.46 14.37 15.69 14.99C14.65 15.81 14 17.08 14 18.5C14 19.34 14.24 20.14 14.65 20.82C14.92 21.27 15.26 21.66 15.66 21.98C15.45 22 15.23 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H15C20 2 22 4 22 9Z"/><path d="M2.52 7.10986H21.48"/><path d="M8.52 2.10986V6.96985"/><path d="M15.48 2.10986V6.5199"/><path d="M23 18.5C23 19.34 22.76 20.14 22.35 20.82C22.11 21.22 21.81 21.58 21.46 21.88C20.67 22.58 19.64 23 18.5 23C17.43 23 16.44 22.62 15.67 21.98H15.66C15.26 21.66 14.92 21.27 14.65 20.82C14.24 20.14 14 19.34 14 18.5C14 17.08 14.65 15.81 15.69 14.99C16.46 14.37 17.44 14 18.5 14C19.91 14 21.16 14.64 21.98 15.65C22.62 16.42 23 17.42 23 18.5Z"/><path d="M16.75 18.5001L17.86 19.6101L20.26 17.3901"/>',
+  reel:'<path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"/><path d="M9.09998 12V10.52C9.09998 8.60999 10.45 7.83999 12.1 8.78999L13.38 9.52999L14.66 10.27C16.31 11.22 16.31 12.78 14.66 13.73L13.38 14.47L12.1 15.21C10.45 16.16 9.09998 15.38 9.09998 13.48V12Z"/>',
   clapper:'<path d="M4 10h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 10l1.4-4.6 14.6-3.6.9 4.2M8.2 5.8l3.4 3M13 4.6l3.4 3"/><path d="M10.5 13.2l3.8 2.3-3.8 2.3z"/>',
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/>',
   star:'<path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1L3.2 9.6l6.1-.8z"/>',
@@ -402,10 +405,10 @@ function vHome(){
         <div class="tagl">${E('profile.tagline')}</div>
       </div>
     </div>
-    <div class="stats">${D.stats.map((s,i)=>`<div class="stat">${ic(s.icon,30)}<b>${E('stats.'+i+'.value')}</b><small>${E('stats.'+i+'.label')}</small></div>`).join('')}</div>
+    <div class="stats">${D.stats.map((s,i)=>`<div class="stat">${ic(s.icon==='clapper'?'done':s.icon,30)}<b>${E('stats.'+i+'.value')}</b><small>${E('stats.'+i+'.label')}</small></div>`).join('')}</div>
     <div class="tabs">
-      <button class="${homeTab==='motion'?'on':''}" data-act="htab" data-a="motion">${ic('grid',26)}</button>
-      <button class="${homeTab==='reels'?'on':''}" data-act="htab" data-a="reels">${ic('clapper',28)}</button>
+      <button class="${homeTab==='motion'?'on':''}" data-act="htab" data-a="motion">${ic('mvideo',28)}</button>
+      <button class="${homeTab==='reels'?'on':''}" data-act="htab" data-a="reels">${ic('reel',28)}</button>
     </div>
     <div class="grid">${tiles}${add}${emptyMsg}</div>
   </div>`;
@@ -446,12 +449,12 @@ function vPricing(){
       <p>${E('pricing.sub1')}<br>${E('pricing.sub2')}</p>
     </div>
     <div class="seg">
-      <button class="${c==='mg'?'on':''}" data-act="ptab" data-a="mg">${ic('clapper',22)}<span>Motion Graphics</span></button>
-      <button class="${c==='reels'?'on':''}" data-act="ptab" data-a="reels"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M10 8.500l5 3.500-5 3.500z"/></svg><span>Reels</span></button>
+      <button class="${c==='mg'?'on':''}" data-act="ptab" data-a="mg">${ic('mvideo',22)}<span>Motion Graphics</span></button>
+      <button class="${c==='reels'?'on':''}" data-act="ptab" data-a="reels">${ic('reel',22)}<span>Reels</span></button>
     </div>
     <div class="sec">
       <div class="sec-h">
-        <span class="ico">${c==='mg'?ic('clapper',46):`<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M10 8.500l5 3.500-5 3.500z"/></svg>`}</span>
+        <span class="ico">${c==='mg'?ic('mvideo',46):ic('reel',46)}</span>
         <div><h2>${E('pricing.'+c+'.title')}</h2><p>${E('pricing.'+c+'.desc','span','',true)}</p></div>
         <div class="script">${E('pricing.'+c+'.script')}</div>
       </div>
@@ -498,13 +501,13 @@ function vCV(){
 }
 
 function renderNav(){
-  const items=[['home','clapper','Video'],['cv','eye','View CV'],['pricing','tag','Pricing']];
+  const items=[['home','mvideo','Video'],['cv','eye','View CV'],['pricing','tag','Pricing']];
   $('#nav').innerHTML = items.map(([k,i,l])=>`<button class="${view===k?'on':''}" data-act="nav" data-a="${k}">${ic(i,26)}<span>${l}</span></button>`).join('');
 }
 function renderAdmin(){
   const a=$('#admin'); a.classList.toggle('show',ADMIN);
   if(!ADMIN){a.innerHTML='';return;}
-  a.innerHTML = `<button class="${EDIT?'on':''}" data-act="toggleedit">${EDIT?'✎ Editing':'✎ Edit'}</button><button data-act="contactinfo">Contact info</button><button data-act="export">Export</button><button data-act="import">Import</button><button data-act="lock">Lock</button>`;
+  a.innerHTML = `<button class="${EDIT?'on':''}" data-act="toggleedit">${EDIT?'✎ Editing':'✎ Edit'}</button><button data-act="contactinfo">Contact info</button><button data-act="publish">Publish ☁</button><button data-act="ghsetup">GitHub</button><button data-act="export">Export</button><button data-act="import">Import</button><button data-act="lock">Lock</button>`;
 }
 async function render(keepScroll=true){
   const y = keepScroll ? window.scrollY : 0;
@@ -610,7 +613,7 @@ async function saveVideo(idx){
     else if(url) src = url;
   }catch(e){ toast('Video သိမ်းလို့မရပါ — URL နဲ့ ထည့်ကြည့်ပါ'); return; }
   if(idx===''){ D.videos.unshift({src,views,kind,hue:Math.floor(Math.random()*360)}); }
-  else { Object.assign(D.videos[+idx],{src,views,kind}); }
+  else { const o=D.videos[+idx]; if(o.src!==src) delete o.remote; Object.assign(o,{src,views,kind}); }
   save(); closeModal(); render();
 }
 function contactModal(){
@@ -645,13 +648,87 @@ function tryUnlock(){
 }
 function exportData(){
   const out=JSON.parse(JSON.stringify(D)); let n=0;
-  out.videos.forEach(v=>{ if(v.src.startsWith('idb:')){v.src='';n++;} });
+  out.videos.forEach(v=>{ if(v.src.startsWith('idb:')){ if(v.remote){v.src=v.remote;} else {v.src='';n++;} } delete v.remote; });
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));
   a.download='data.json'; a.click();
   toast(n? `data.json ပြီးပါပြီ — upload လုပ်ထားတဲ့ video ${n} ခုကို URL နဲ့ပြန်ထည့်ရန်လိုပါတယ်` : 'data.json ပြီးပါပြီ — index.html ဘေးမှာ တင်ပါ');
 }
 
+
+
+/* ---------- GITHUB PUBLISH  (data.json + video တွေကို repo ထဲ တိုက်ရိုက်တင်) ---------- */
+function ghLoad(){ try{ return JSON.parse(localStorage.getItem('pf_gh')||'{}'); }catch(e){ return {}; } }
+function ghGuess(){
+  const h=location.hostname, seg=location.pathname.split('/').filter(Boolean);
+  if(h.endsWith('.github.io')){
+    const repo = (seg[0] && !/\.html?$/i.test(seg[0])) ? seg[0] : h;
+    return {owner:h.split('.')[0], repo};
+  }
+  return {owner:'',repo:''};
+}
+function ghModal(){
+  const g=Object.assign({branch:'main'},ghGuess(),ghLoad());
+  openModal(`<h3>GitHub setup</h3>
+    <label>GitHub username</label><input id="ghOwner" value="${esc(g.owner)}" placeholder="username">
+    <label>Repository name</label><input id="ghRepo" value="${esc(g.repo)}" placeholder="my-portfolio">
+    <label>Branch</label><input id="ghBranch" value="${esc(g.branch)}" placeholder="main">
+    <label>Access token</label><input id="ghToken" type="password" value="${esc(g.token||'')}" placeholder="github_pat_...">
+    <p class="hint">Token ယူနည်း: GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate. Repository access မှာ <b>ဒီ repo တစ်ခုတည်း</b> ရွေးပြီး Permissions → <b>Contents: Read and write</b> ပေးပါ။ Token က ဒီ browser ထဲမှာပဲ သိမ်းပါတယ် (အခြားသူမမြင်ရ)။</p>
+    <div class="mrow"><button data-act="closemodal">Cancel</button><button class="pri" data-act="saveghsetup">Save</button></div>`);
+}
+function ghSave(){
+  const g={owner:$('#ghOwner').value.trim(),repo:$('#ghRepo').value.trim(),branch:$('#ghBranch').value.trim()||'main',token:$('#ghToken').value.trim()};
+  localStorage.setItem('pf_gh',JSON.stringify(g)); closeModal(); toast('GitHub setup သိမ်းပြီး ✓');
+}
+async function ghReq(g,path,opt={}){
+  const put = opt.method==='PUT';
+  const r = await fetch(`https://api.github.com/repos/${g.owner}/${g.repo}/contents/${path}`+(put?'':`?ref=${encodeURIComponent(g.branch)}`),{
+    method: put?'PUT':'GET',
+    headers: Object.assign({'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}, put?{'Content-Type':'application/json'}:{}),
+    body: put?JSON.stringify(opt.body):undefined
+  });
+  if(r.status===404 && !put) return null;
+  if(!r.ok){ let m=''; try{ m=(await r.json()).message; }catch(e){} throw new Error(r.status+' '+m); }
+  return r.json();
+}
+const blobB64 = b => new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]); r.onerror=()=>rej(r.error); r.readAsDataURL(b); });
+let pubBusy=false;
+async function publishSite(){
+  if(pubBusy) return;
+  const g=ghLoad();
+  if(!g.token||!g.owner||!g.repo){ toast('GitHub setup အရင်လုပ်ပါ'); ghModal(); return; }
+  g.branch=g.branch||'main';
+  pubBusy=true;
+  try{
+    const out=JSON.parse(JSON.stringify(D));
+    for(let i=0;i<D.videos.length;i++){
+      const v=D.videos[i];
+      if(v.src && v.src.startsWith('idb:')){
+        if(!v.remote){
+          toast(`Video ${i+1}/${D.videos.length} တင်နေပါတယ်… ခဏစောင့်ပါ`);
+          const b=await idbGet(v.src);
+          if(!b) throw new Error('ဒီ video က ဒီ browser ထဲမှာ မရှိတော့ပါ — ပြန်ရွေးပြီး Save လုပ်ပါ');
+          if(b.size>95*1024*1024) throw new Error('Video က 95MB ထက်ကြီးနေတယ် — compress လုပ်ပါ (သို့) URL နဲ့ထည့်ပါ');
+          const ext=({'video/mp4':'mp4','video/webm':'webm','video/quicktime':'mov'})[b.type]||'mp4';
+          const path=`videos/${Date.now()}-${i}.${ext}`;
+          await ghReq(g,path,{method:'PUT',body:{message:'Add video',content:await blobB64(b),branch:g.branch}});
+          v.remote=path; save();
+        }
+        out.videos[i].src=v.remote;
+      }
+      delete out.videos[i].remote;
+    }
+    toast('data.json တင်နေပါတယ်…');
+    const cur=await ghReq(g,'data.json');
+    await ghReq(g,'data.json',{method:'PUT',body:Object.assign({message:'Update data.json',content:await blobB64(new Blob([JSON.stringify(out,null,2)])),branch:g.branch},cur?{sha:cur.sha}:{})});
+    save();
+    toast('Publish ပြီးပါပြီ ✓ — Site ပေါ်ရောက်ဖို့ ၁-၂ မိနစ်လောက်စောင့်ပါ');
+  }catch(e){
+    const m=String(e.message||e);
+    alert('Publish မအောင်မြင်ပါ\n\n'+m+(/^(401|403)/.test(m)?'\n\nToken မမှန်ဘူး (သို့) Contents: Read and write permission မပေးထားဘူး ဖြစ်နိုင်ပါတယ်။':'')+(/^404/.test(m)?'\n\nUsername / Repo name / Branch ကို ပြန်စစ်ပါ။':''));
+  }finally{ pubBusy=false; }
+}
 
 /* ---------- TELEGRAM + TERMS + APPLY ---------- */
 const TELEGRAM_BOT_TOKEN = '8905424717:AAHRUR7624xZ4TYXoVFsah-OUZ7w47ShoSM';
@@ -816,6 +893,9 @@ document.addEventListener('click',async e=>{
     case 'toggleedit': EDIT=!EDIT; render(); break;
     case 'lock': ADMIN=false; EDIT=false; localStorage.removeItem('pf_admin'); location.reload(); break;
     case 'export': exportData(); break;
+    case 'publish': publishSite(); break;
+    case 'ghsetup': ghModal(); break;
+    case 'saveghsetup': ghSave(); break;
     case 'import': $('#importIn').click(); break;
     case 'contactinfo': contactModal(); break;
     case 'savecontact': document.querySelectorAll('[data-ci]').forEach(i=>D.contact[i.dataset.ci]=i.value.trim()); save(); closeModal(); render(); break;
@@ -850,7 +930,7 @@ document.addEventListener('keydown',e=>{
     try{ const s=localStorage.getItem('pf_data'); if(s){ D=Object.assign({},DEFAULT,JSON.parse(s)); loaded=true; } }catch(e){}
   }
   if(!loaded){
-    try{ const r=await fetch('data.json',{cache:'no-store'}); if(r.ok){ D=Object.assign({},DEFAULT,await r.json()); } }catch(e){}
+    try{ const r=await fetch('data.json?v='+Date.now(),{cache:'no-store'}); if(r.ok){ D=Object.assign({},DEFAULT,await r.json()); } }catch(e){}
   }
   await render(false);
   if(location.hash==='#admin' && !ADMIN) tryUnlock();
