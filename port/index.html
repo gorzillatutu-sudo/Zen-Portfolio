@@ -163,6 +163,7 @@ svg{display:block;flex:none}
 .rs::-webkit-scrollbar{display:none}
 .reel{height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;background:#000}
 .reel video,.reel .ph{width:100%;height:100%;object-fit:cover;display:block}
+.reel video.land{object-fit:contain;background:#000}
 .reel .ph{display:grid;place-items:center;color:#fff;font-weight:600;opacity:.9}
 .rtitle{position:absolute;left:20px;top:calc(env(safe-area-inset-top) + 28px);font-size:25px;font-weight:600;text-shadow:0 2px 12px rgba(0,0,0,.5);z-index:5;pointer-events:none}
 .rback{position:absolute;right:16px;top:calc(env(safe-area-inset-top) + 24px);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.55);display:grid;place-items:center;z-index:6;backdrop-filter:blur(6px)}
@@ -569,6 +570,10 @@ function openReels(i){
     <div class="rbar"><i id="rfill"></i></div>
     <div class="rplay" id="rplay">${ic('play',30)}</div></div>`;
   el.classList.add('open'); document.body.style.overflow='hidden';
+  el.querySelectorAll('.reel video').forEach(v=>{
+    const f=()=>v.classList.toggle('land', v.videoWidth>v.videoHeight);
+    v.addEventListener('loadedmetadata',f); if(v.readyState>=1) f();
+  });
   const sc=el.querySelector('.rs'); sc.scrollTop = pos.indexOf(i)*sc.clientHeight;
   rObs && rObs.disconnect();
   rObs = new IntersectionObserver(es=>{
