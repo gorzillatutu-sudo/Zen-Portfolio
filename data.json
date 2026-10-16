@@ -37,9 +37,9 @@
   "videos": [
     {
       "src": "https://drive.google.com/file/d/1TOq2c3orwC-YKNe-_BXzj6xlTx3ln30Q/view?usp=drivesdk",
-      "views": "34",
+      "views": "28",
       "kind": "motion",
-      "hue": 51
+      "hue": 324
     }
   ],
   "pricing": {
@@ -91,7 +91,8 @@
             "1080p (Full HD)",
             "Text / Logo / Element",
             "Sound Design",
-            "Custom Style"
+            "Custom Style",
+            "Advance Animation "
           ]
         }
       ]
@@ -109,26 +110,28 @@
           "popular": false,
           "features": [
             "Up to 60 seconds",
-            "2 Revision",
+            "12 Revision",
             "1080p (Full HD)",
-            "Subtitles (optional)",
-            "Small motion include ",
-            "Sound Effects "
+            "Subtitles & Text Animation ",
+            "Small Motion Include ",
+            "Sound Effect ",
+            "Ai B roll ( Optional)"
           ]
         },
         {
           "name": "Standard",
           "desc": "More effects, better vibes for higher engagement.",
           "price": "650000",
-          "unit": "15/videos",
+          "unit": "15/video",
           "popular": true,
           "features": [
             "Up to 60 seconds",
             "3 Revisions",
             "1080p (Full HD)",
             "Transitions & Effects",
-            "Subtitles & Sound Effect",
-            "Small motion Include "
+            "Subtitles & Sound Effect  ",
+            "Small Motion Include ",
+            "Ai B roll ( Optional)"
           ]
         },
         {
@@ -139,11 +142,12 @@
           "popular": false,
           "features": [
             "Up to 60 seconds",
-            "4 Revisions",
+            "3 Revisions",
             "1080p (Full HD)",
             "Transitions & Effects",
-            "Subtitles & Sound Effect",
-            "Small motion Include "
+            "Subtitles & Sound Effect  ",
+            "Small Motion Include ",
+            "Ai B roll ( Optional)"
           ]
         }
       ]
