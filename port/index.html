@@ -662,23 +662,29 @@ function ghLoad(){ try{ return JSON.parse(localStorage.getItem('pf_gh')||'{}'); 
 function ghGuess(){
   const h=location.hostname, seg=location.pathname.split('/').filter(Boolean);
   if(h.endsWith('.github.io')){
-    const repo = (seg[0] && !/\.html?$/i.test(seg[0])) ? seg[0] : h;
-    return {owner:h.split('.')[0], repo};
+    const isProject = seg[0] && !/\.html?$/i.test(seg[0]);
+    const repo = isProject ? seg[0] : h;
+    const rest = isProject ? seg.slice(1) : seg.slice(0);
+    if(rest.length && /\.[a-z0-9]+$/i.test(rest[rest.length-1])) rest.pop();
+    return {owner:h.split('.')[0], repo, dir:rest.join('/')};
   }
-  return {owner:'',repo:''};
+  return {owner:'',repo:'',dir:''};
 }
+/* repo ထဲက index.html ရှိတဲ့ folder (ဥပမာ "port") — data.json / videos ကို ဒီ folder ထဲတင်မယ် */
+const ghPath = (g,p) => (g.dir ? g.dir.replace(/^\/+|\/+$/g,'')+'/' : '') + p;
 function ghModal(){
   const g=Object.assign({branch:'main'},ghGuess(),ghLoad());
   openModal(`<h3>GitHub setup</h3>
     <label>GitHub username</label><input id="ghOwner" value="${esc(g.owner)}" placeholder="username">
     <label>Repository name</label><input id="ghRepo" value="${esc(g.repo)}" placeholder="my-portfolio">
     <label>Branch</label><input id="ghBranch" value="${esc(g.branch)}" placeholder="main">
+    <label>Folder (index.html ရှိတဲ့ folder — root မှာဆို ဗလာထား)</label><input id="ghDir" value="${esc(g.dir||'')}" placeholder="port">
     <label>Access token</label><input id="ghToken" type="password" value="${esc(g.token||'')}" placeholder="github_pat_...">
     <p class="hint">Token ယူနည်း: GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate. Repository access မှာ <b>ဒီ repo တစ်ခုတည်း</b> ရွေးပြီး Permissions → <b>Contents: Read and write</b> ပေးပါ။ Token က ဒီ browser ထဲမှာပဲ သိမ်းပါတယ် (အခြားသူမမြင်ရ)။</p>
     <div class="mrow"><button data-act="closemodal">Cancel</button><button class="pri" data-act="saveghsetup">Save</button></div>`);
 }
 function ghSave(){
-  const g={owner:$('#ghOwner').value.trim(),repo:$('#ghRepo').value.trim(),branch:$('#ghBranch').value.trim()||'main',token:$('#ghToken').value.trim()};
+  const g={owner:$('#ghOwner').value.trim(),repo:$('#ghRepo').value.trim(),branch:$('#ghBranch').value.trim()||'main',dir:$('#ghDir').value.trim().replace(/^\/+|\/+$/g,''),token:$('#ghToken').value.trim()};
   localStorage.setItem('pf_gh',JSON.stringify(g)); closeModal(); toast('GitHub setup သိမ်းပြီး ✓');
 }
 async function ghReq(g,path,opt={}){
@@ -712,7 +718,7 @@ async function publishSite(){
           if(b.size>95*1024*1024) throw new Error('Video က 95MB ထက်ကြီးနေတယ် — compress လုပ်ပါ (သို့) URL နဲ့ထည့်ပါ');
           const ext=({'video/mp4':'mp4','video/webm':'webm','video/quicktime':'mov'})[b.type]||'mp4';
           const path=`videos/${Date.now()}-${i}.${ext}`;
-          await ghReq(g,path,{method:'PUT',body:{message:'Add video',content:await blobB64(b),branch:g.branch}});
+          await ghReq(g,ghPath(g,path),{method:'PUT',body:{message:'Add video',content:await blobB64(b),branch:g.branch}});
           v.remote=path; save();
         }
         out.videos[i].src=v.remote;
@@ -720,8 +726,8 @@ async function publishSite(){
       delete out.videos[i].remote;
     }
     toast('data.json တင်နေပါတယ်…');
-    const cur=await ghReq(g,'data.json');
-    await ghReq(g,'data.json',{method:'PUT',body:Object.assign({message:'Update data.json',content:await blobB64(new Blob([JSON.stringify(out,null,2)])),branch:g.branch},cur?{sha:cur.sha}:{})});
+    const cur=await ghReq(g,ghPath(g,'data.json'));
+    await ghReq(g,ghPath(g,'data.json'),{method:'PUT',body:Object.assign({message:'Update data.json',content:await blobB64(new Blob([JSON.stringify(out,null,2)])),branch:g.branch},cur?{sha:cur.sha}:{})});
     save();
     toast('Publish ပြီးပါပြီ ✓ — Site ပေါ်ရောက်ဖို့ ၁-၂ မိနစ်လောက်စောင့်ပါ');
   }catch(e){
