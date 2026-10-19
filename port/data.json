@@ -36,6 +36,12 @@
   ],
   "videos": [
     {
+      "src": "https://res.cloudinary.com/ude4tb4q/video/upload/v1792428190/DreamVerse_A3D435F.mp4",
+      "views": "348",
+      "kind": "motion",
+      "hue": 288
+    },
+    {
       "src": "https://res.cloudinary.com/ude4tb4q/video/upload/v1792145121/Dream_Verse.mp4",
       "views": "165",
       "kind": "motion",
